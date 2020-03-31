@@ -6,8 +6,32 @@
              mc:Ignorable="d"
              x:Class="app6_json.MainPage">
 
-<?API TOKEN = e944e27c1a0dc86ec079d3afc927442f1eb93bf0 ?>  
-    <StackLayout>
-        
+<?API TOKEN = e944e27c1a0dc86ec079d3afc927442f1eb93bf0 ?>
+<?url = "https://owlbot.info/api/v2/dictionary/"?>
+
+    <StackLayout BackgroundColor="AliceBlue" Padding="25">
+        <StackLayout Orientation="Horizontal">
+            <Entry
+                HorizontalOptions="FillAndExpand"
+                BackgroundColor="White"
+                Placeholder="Search for a word.."/>
+            <Button
+                BorderColor="LightBlue"
+                BorderWidth="4"
+                Text="Search"
+                BackgroundColor="CornflowerBlue"
+                TextColor="White"/>
+        </StackLayout>
+        <StackLayout Padding="15">
+        <Label
+            BackgroundColor="LightGray"
+            Text="{Binding WordType}"/>
+        <Label
+            BackgroundColor="LightGray"
+            Text="{Binding Definition}"/>
+        <Label
+            BackgroundColor="LightGray"
+            Text="{Binding Example}"/>
+        </StackLayout>
     </StackLayout>
 </ContentPage>
