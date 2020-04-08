@@ -6,32 +6,59 @@
              mc:Ignorable="d"
              x:Class="app6_json.MainPage">
 
-<?API TOKEN = e944e27c1a0dc86ec079d3afc927442f1eb93bf0 ?>
-<?url = "https://owlbot.info/api/v2/dictionary/"?>
-
-    <StackLayout BackgroundColor="AliceBlue" Padding="25">
+    <StackLayout BackgroundColor="AliceBlue" VerticalOptions="Fill" Padding="22">
+         <Label HorizontalOptions="Center"
+                FontAttributes="Bold"
+                FontSize="44"
+                Text="Jacob's Dictionary"
+                TextColor="LightBlue"
+                />
+         
         <StackLayout Orientation="Horizontal">
             <Entry
+                x:Name="entrybox"
+                Text=""
                 HorizontalOptions="FillAndExpand"
                 BackgroundColor="White"
                 Placeholder="Search for a word.."/>
             <Button
-                BorderColor="LightBlue"
+                Clicked="GrabData"
                 BorderWidth="4"
                 Text="Search"
-                BackgroundColor="CornflowerBlue"
+                BackgroundColor="LightBlue"
                 TextColor="White"/>
         </StackLayout>
-        <StackLayout Padding="15">
-        <Label
-            BackgroundColor="LightGray"
-            Text="{Binding WordType}"/>
-        <Label
-            BackgroundColor="LightGray"
-            Text="{Binding Definition}"/>
-        <Label
-            BackgroundColor="LightGray"
-            Text="{Binding Example}"/>
-        </StackLayout>
+
+        <StackLayout Padding="0,20,0,0" VerticalOptions="FillAndExpand" Orientation="Vertical">
+            <StackLayout Orientation="Horizontal">
+                <Label TextColor="LightBlue" FontSize="22" Text="Word: "/>
+                <Label
+                    TextColor="Black"
+                    FontSize="20"
+                    Text="{Binding word}"
+                    />
+                    
+                 <Label TextColor="LightBlue" Padding="50,0,0,0" FontSize="22" Text="Type: "/>
+                 <Label
+                   TextColor="Black"
+                   FontSize="20"
+                   Text="{Binding Definition[0].type}"/>
+            </StackLayout>
+            <StackLayout Orientation="Vertical">
+                 <Label TextColor="LightBlue" FontSize="22" Text="Definition: "/>
+                 <Label
+                    TextColor="Black"
+                    FontSize="20"
+                    Text="{Binding Definition[0].definition}"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label TextColor="LightBlue" FontSize="22" Text="Example: "/>
+                <Label
+                    TextColor="Black"
+                    FontSize="20"
+                    Text="{Binding Definition[0].example}"/>
+                </StackLayout>
+            </StackLayout>
+        <Label  HorizontalOptions="Center" FontSize="10" Text="powered by Owlbot (owlbot.info)"/>
     </StackLayout>
 </ContentPage>
