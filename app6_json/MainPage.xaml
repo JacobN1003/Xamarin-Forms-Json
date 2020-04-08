@@ -13,14 +13,14 @@
                 Text="Jacob's Dictionary"
                 TextColor="LightBlue"
                 />
-         
         <StackLayout Orientation="Horizontal">
+            <Frame BorderColor="LightBlue" Padding="2" HorizontalOptions="FillAndExpand"> 
             <Entry
                 x:Name="entrybox"
                 Text=""
                 HorizontalOptions="FillAndExpand"
                 BackgroundColor="White"
-                Placeholder="Search for a word.."/>
+                Placeholder="Search for a word.."/></Frame>
             <Button
                 Clicked="GrabData"
                 BorderWidth="4"
@@ -28,37 +28,21 @@
                 BackgroundColor="LightBlue"
                 TextColor="White"/>
         </StackLayout>
-
         <StackLayout Padding="0,20,0,0" VerticalOptions="FillAndExpand" Orientation="Vertical">
             <StackLayout Orientation="Horizontal">
                 <Label TextColor="LightBlue" FontSize="22" Text="Word: "/>
-                <Label
-                    TextColor="Black"
-                    FontSize="20"
-                    Text="{Binding word}"
-                    />
-                    
-                 <Label TextColor="LightBlue" Padding="50,0,0,0" FontSize="22" Text="Type: "/>
-                 <Label
-                   TextColor="Black"
-                   FontSize="20"
-                   Text="{Binding Definition[0].type}"/>
-            </StackLayout>
-            <StackLayout Orientation="Vertical">
-                 <Label TextColor="LightBlue" FontSize="22" Text="Definition: "/>
-                 <Label
-                    TextColor="Black"
-                    FontSize="20"
-                    Text="{Binding Definition[0].definition}"/>
-            </StackLayout>
+                <Label TextColor="Black" FontSize="20" Text="{Binding word}" />
+             </StackLayout>
             <StackLayout Orientation="Horizontal">
-                <Label TextColor="LightBlue" FontSize="22" Text="Example: "/>
-                <Label
-                    TextColor="Black"
-                    FontSize="20"
-                    Text="{Binding Definition[0].example}"/>
-                </StackLayout>
+                 <Label TextColor="LightBlue"  FontSize="22" Text="Type: "/>
+                 <Label TextColor="Black" FontSize="20" Text="{Binding Definition[0].type}"/>
             </StackLayout>
-        <Label  HorizontalOptions="Center" FontSize="10" Text="powered by Owlbot (owlbot.info)"/>
+            <Label TextColor="LightBlue" FontSize="22" Text="Definition: "/>
+            <Label TextColor="Black" FontSize="20" Text="{Binding Definition[0].definition}"/>
+            <Label TextColor="LightBlue" FontSize="22" Text="Example: "/>
+            <Label TextColor="Black" FontSize="20" Text="{Binding Definition[0].example}"/>
+            </StackLayout>
+        <Image Margin="50" Source="{Binding Definition[0].imageUrl}"/>
+        <Label HorizontalOptions="Center" FontSize="13" Text="Powered by Owlbot (owlbot.info)"/>
     </StackLayout>
 </ContentPage>
